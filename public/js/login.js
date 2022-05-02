@@ -437,7 +437,8 @@ const CONTRACT_ABI = [
 ];
 const CHAIN = "mumbai"      // siet na ktorej je smart kontrakt
 
-const BASE_URL = "http://localhost:4000"     //URL mojej api
+//const BASE_URL = "http://localhost:4000"     //URL mojej api
+const BASE_URL = "http://167.71.3.36/:4000"
 
 Moralis.start({serverUrl: SERVER_URL, appId: APP_ID});
 let web3;
