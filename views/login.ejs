@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/moralis/dist/moralis.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.1/mdb.min.css" rel="stylesheet"/>
+    <link href="css/style.css" rel="stylesheet" />
+</head>
+<body>
+
+
+
+
+<div class="container" id="login_main_div">
+
+    <div class= "col-md-6 offset-md-3" id="main_square_div">
+
+        <div class="" id="heading_div">
+            <h1 class="display-5" id="login_heading_main">Login to NFT Manager</h1>
+        </div>
+
+
+        <div class="row" id="app">
+            <div class="col-md- offset-md-0">
+
+                <div class="form_element">
+                    <label for="input_login">Login</label>
+                    <input class="form-control" type="text" id="input_login" name="login" placeholder="Your login">
+                </div>
+
+                <div class="form_element">
+                    <label for="password_login">Password</label>
+                    <input class="form-control" type="password" id="password_login" name="password" placeholder="Password">
+                </div>
+
+                <div class="form_element">
+                    <div class="text-center">
+                        <button class="btn btn-primary btn-large center-block"  id="login_submit_btn"> LOGIN</button>
+                        <button class="btn btn-primary btn-large center-block"  id="login_metamask_btn">METAMASK LOGIN</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script  src="js/login.js"></script>
+</body>
+</html>
