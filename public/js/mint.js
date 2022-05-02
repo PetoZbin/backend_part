@@ -1,5 +1,6 @@
 //const Web3 = require("web3");
-const BASE_URL = "http://localhost:4000";
+//const BASE_URL = "http://localhost:4000";
+const BASE_URL = "http://167.71.3.36"
 const NODE_URL = "https://speedy-nodes-nyc.moralis.io/7e552ee0a5c1d070a33196ac/polygon/mumbai"; //cez sluzbu moralis speedy nodes
 //const CONTRACT_ADDRESS = "0x3252a61658Ac6CAC68eBE6EDDFE2cf92234c0795";  //erc721 first
 const CONTRACT_ADDRESS = "0x696cF7705AE83936875E257C469AF6c305346112";  //erc721 aktualny
