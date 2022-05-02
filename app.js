@@ -169,7 +169,7 @@ app.get('/mint', (req,res) => {
 
 
 
-app.listen(process.env.port || 4000, '167.7.3.36',function (){
+app.listen(process.env.port || 4000,function (){
 
     console.log("Ready")
 });
