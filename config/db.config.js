@@ -18,7 +18,7 @@ module.exports = {
         password : 'AVNS_t8ry6d0uu_18oyS',
         host : 'db-mysql-ams3-41671-do-user-11489151-0.b.db.ondigitalocean.com',
         port : '25060',
-        database : 'defaultdb',
+        database : 'orienteering',
         sslmode : 'REQUIRED',
         timezone: '+00:00'
     }
