@@ -2,6 +2,10 @@ const db = require("../db/db");
 const {emptyOrRows,getOffset} = require("../db/db.helper");
 const {CompetitionStates} = require("../enums/competitionStates");
 const {CompetitorStates} = require("../enums/competitorStates");
+const timeHelper = require("../helpers/time.helper")
+const {TIME} = require("mysql/lib/protocol/constants/types");
+
+const TIMEZONE_OFFSET = 2;
 
 async function insertCompetition(competition){
 
@@ -57,12 +61,9 @@ async function insertNotifOnPrizeTransfered(userId, notifHeading ,notifText){
 
 async function updateAwaitingCompetitionsToOngoing(){
 //NOW()
-    let curDate = new Date();
-    curDate.setHours(curDate.getHours() + 2);
-    curDate.
 
     const sql = `UPDATE competitions SET status = 'ONGOING' WHERE status = 'AWAITING' AND compDateTime < ?`;
-    return await db.query(sql, [curDate]);
+    return await db.query(sql, [timeHelper.getMySqlTime(TIMEZONE_OFFSET)]);
 
 
 
@@ -249,11 +250,10 @@ async function getLeaderBoardByUserInCompetition(userId, competitionId){
 async function getCompetitionIdsNowToBeAwarded(){
 
     //NOW()
-    const curDate = new Date();
 
     const sql = `SELECT competitionId FROM competitions WHERE (DATE_ADD(compDateTime, INTERVAL durationMins minute) < ?) AND (status = 'ONGOING')`
 
-    const res = await db.query(sql, [curDate]);
+    const res = await db.query(sql, [timeHelper.getMySqlTime(TIMEZONE_OFFSET)]);
     const data = emptyOrRows(res);
     console.log(data);
     return data;

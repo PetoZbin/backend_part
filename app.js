@@ -16,6 +16,7 @@ const dbconfig = require('./config/db.config');
 const auth = require("./middlewares/auth");
 const errors = require("./middlewares/errors");
 const unless = require("express-unless");
+const timeHelper = require("./helpers/time.helper")
 
 const nodeSchedule = require('node-schedule')
 const AWARDING_JOB = "AWARDING";
@@ -183,8 +184,7 @@ console.log(Moralis.applicationId)
 //kazdu minutu vyhodnot skoncene sutaze
 nodeSchedule.scheduleJob(AWARDING_JOB ,'* * * * *', ()=>{
 
-    let date = new Date(new Date().getHours() +2);
-    console.log(date.toISOString().slice(0, 19).replace('T', ' '));
+    console.log(timeHelper.getMySqlTime(2));
 
     makeCompetitionsOngoing();
 

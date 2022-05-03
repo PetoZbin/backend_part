@@ -20,4 +20,11 @@ function msToTime(s) {
     return pad(hrs) + ':' + pad(mins) + ':' + pad(secs) + '.' + pad(ms, 3);
 }
 
-module.exports = {msToTime}
+function getMySqlTime(timezoneOffset){
+
+
+    let date = new Date(new Date().getHours() + timezoneOffset);
+   return date.toISOString().slice(0, 19).replace('T', ' ');
+}
+
+module.exports = {msToTime, getMySqlTime}
