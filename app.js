@@ -185,6 +185,7 @@ nodeSchedule.scheduleJob(AWARDING_JOB ,'* * * * *', ()=>{
 
     makeCompetitionsOngoing();
 
+    console.log(new Date().toString())
     console.log("awarding @" + new Date().toISOString() + "started");
     let promise = awardCompetitions();
 
