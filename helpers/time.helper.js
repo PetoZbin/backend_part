@@ -23,7 +23,8 @@ function msToTime(s) {
 function getMySqlTime(timezoneOffset){
 
 
-    let date = new Date(new Date().getHours() + timezoneOffset);
+    let date = new Date();
+    date.setHours(date.getHours() + timezoneOffset);
    return date.toISOString().slice(0, 19).replace('T', ' ');
 }
 
