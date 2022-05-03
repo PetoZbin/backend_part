@@ -57,7 +57,9 @@ async function insertNotifOnPrizeTransfered(userId, notifHeading ,notifText){
 
 async function updateAwaitingCompetitionsToOngoing(){
 //NOW()
-    const curDate = new Date();
+    let curDate = new Date();
+    curDate.setHours(curDate.getHours() + 2);
+    curDate.
 
     const sql = `UPDATE competitions SET status = 'ONGOING' WHERE status = 'AWAITING' AND compDateTime < ?`;
     return await db.query(sql, [curDate]);

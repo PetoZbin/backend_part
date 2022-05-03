@@ -183,10 +183,12 @@ console.log(Moralis.applicationId)
 //kazdu minutu vyhodnot skoncene sutaze
 nodeSchedule.scheduleJob(AWARDING_JOB ,'* * * * *', ()=>{
 
+    let date = new Date(new Date().getHours() +2);
+    console.log(date.toISOString().slice(0, 19).replace('T', ' '));
+
     makeCompetitionsOngoing();
 
-    console.log(new Date().toString())
-    console.log("awarding @" + new Date().toISOString() + "started");
+    console.log("awarding @" + new Date().toString() + " " +"started");
     let promise = awardCompetitions();
 
 });
