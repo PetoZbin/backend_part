@@ -1,5 +1,5 @@
 
-
+const TIMEZONE_OFFSET = 2;
 //na zaklade zdroja: https://stackoverflow.com/a/9763769
 
 function pad(ms, z) {
@@ -20,7 +20,7 @@ function msToTime(s) {
     return pad(hrs) + ':' + pad(mins) + ':' + pad(secs) + '.' + pad(ms, 3);
 }
 
-function getMySqlTime(timezoneOffset){
+function getMySqlTime(timezoneOffset = TIMEZONE_OFFSET){
 
 
     let date = new Date();

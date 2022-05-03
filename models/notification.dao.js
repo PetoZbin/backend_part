@@ -1,6 +1,6 @@
 const db = require("../db/db");
 const {emptyOrRows} = require("../db/db.helper");
-
+const timeHelper = require("../helpers/time.helper")
 
 async function insertNotification(userId , notifHeading, notifText, notifUrl= 'NULL'){
 
@@ -22,9 +22,9 @@ async function updateUserNotificationRead(notifIdList){    //bud este nevidel al
 
 async function getUserNotifications(userId){    //bud este nevidel alebo uz videl ale na inom zariadeni - 15 minutove interval medzi dotazmi (android)
 
-    const sql = `SELECT * FROM notifs WHERE userId = ? AND ((wasRead = 0) OR (ABS(TIMESTAMPDIFF(MINUTE,timeCreated, NOW())) < 15))`;
+    const sql = `SELECT * FROM notifs WHERE userId = ? AND ((wasRead = 0) OR (ABS(TIMESTAMPDIFF(MINUTE,timeCreated, ?)) < 15))`;
 
-    const res = await db.query(sql, [userId]);
+    const res = await db.query(sql, [userId, timeHelper.getMySqlTime()]);
     const data = emptyOrRows(res);
     return data;
 }
