@@ -25,6 +25,7 @@ const {awardCompetitions, makeCompetitionsOngoing} = require("./services/competi
 require('dotenv').config(); //nasetovanie environment variables do process. env
 
 const app = Express();
+process.env.TZ = "Europe/Prague";
 
 //const initializePassport = require('./passport-config')
 
