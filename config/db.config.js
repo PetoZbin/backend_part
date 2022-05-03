@@ -20,7 +20,7 @@ module.exports = {
         port : '25060',
         database : 'orienteering',
         sslmode : 'REQUIRED',
-        timezone: '-02:00'
+        timezone: '+00:00'
     }
 
 
