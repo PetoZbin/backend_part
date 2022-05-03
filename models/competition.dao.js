@@ -56,10 +56,11 @@ async function insertNotifOnPrizeTransfered(userId, notifHeading ,notifText){
 }
 
 async function updateAwaitingCompetitionsToOngoing(){
+//NOW()
+    const curDate = new Date();
 
-
-    const sql = `UPDATE competitions SET status = 'ONGOING' WHERE status = 'AWAITING' AND compDateTime < NOW()`;
-    return await db.query(sql, []);
+    const sql = `UPDATE competitions SET status = 'ONGOING' WHERE status = 'AWAITING' AND compDateTime < ?`;
+    return await db.query(sql, [curDate]);
 
 
 
@@ -245,9 +246,12 @@ async function getLeaderBoardByUserInCompetition(userId, competitionId){
 
 async function getCompetitionIdsNowToBeAwarded(){
 
-    const sql = `SELECT competitionId FROM competitions WHERE (DATE_ADD(compDateTime, INTERVAL durationMins minute) < NOW()) AND (status = 'ONGOING')`
+    //NOW()
+    const curDate = new Date();
 
-    const res = await db.query(sql, []);
+    const sql = `SELECT competitionId FROM competitions WHERE (DATE_ADD(compDateTime, INTERVAL durationMins minute) < ?) AND (status = 'ONGOING')`
+
+    const res = await db.query(sql, [curDate]);
     const data = emptyOrRows(res);
     console.log(data);
     return data;
